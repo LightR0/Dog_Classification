@@ -98,14 +98,14 @@ from keras.layers import *
 np.random.seed(2017)
 
 input_tensor = Input(X_train.shape[1:])
-x = Dropout(0.6)(input_tensor)
+x = Dropout(0.5)(input_tensor)
 x = Dense(100, activation='softmax')(x)
 model = Model(input_tensor, x)
 model.compile(optimizer='Adadelta',loss='categorical_crossentropy',metrics=['accuracy'])
 '''
 训练
 '''
-model.fit(X_train, y_train, batch_size=32, epochs=30, validation_data=(X_valid,y_valid))
+model.fit(X_train, y_train, batch_size=32, epochs=20, validation_data=(X_valid,y_valid))
 '''
 预测
 '''
